@@ -45,8 +45,11 @@ const Index = () => {
         
         {inspectorActive && (
           <div className="mt-4 animate-fade-in">
-            <Badge className="bg-green-600 text-white">
-              Inspector Active - Hover over elements below to explore!
+            <Badge 
+              className="bg-green-600 text-white cursor-pointer hover:bg-green-700 transition-colors"
+              onClick={() => setInspectorActive(false)}
+            >
+              Inspector Active - Hover over elements below to explore! (Click to disable)
             </Badge>
           </div>
         )}
