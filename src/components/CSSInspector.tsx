@@ -302,10 +302,16 @@ export const CSSInspector = ({
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isLocked) {
-        setIsLocked(false);
-        setHoveredElement(null);
-        setElementInfo(null);
+      if (e.key === 'Escape') {
+        if (isLocked) {
+          // First escape: unlock
+          setIsLocked(false);
+          setHoveredElement(null);
+          setElementInfo(null);
+        } else if (isActive) {
+          // Second escape: deactivate inspector
+          toggleActive();
+        }
       }
     };
 
